@@ -1,6 +1,6 @@
 def main():
-    print("Hello from git-test!")
     print("お腹すいたよ。")
+    print("今日のご飯はペペロンチーノ")
 
 
 if __name__ == "__main__":
