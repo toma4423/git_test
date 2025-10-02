@@ -12,7 +12,7 @@ COPY pyproject.toml uv.lock* ./
 
 # uvを使って依存関係をインストール
 # uv.lockが存在しない場合も考慮
-RUN uv sync --system || uv pip install -r <(uv pip compile pyproject.toml --output-file -)
+RUN bash -c "uv sync || uv pip install --system -r <(uv pip compile pyproject.toml --output-file -)"
 
 # アプリケーションのソースコードとテンプレートをコピー
 COPY main.py .
