@@ -1,7 +1,12 @@
-def main():
-    print("お腹すいたよ。")
-    print("今日のご飯はペペロンチーノ")
+from fastapi import FastAPI
+from fastapi.responses import FileResponse
+import os
 
+app = FastAPI()
 
-if __name__ == "__main__":
-    main()
+# templatesディレクトリのパスを取得
+template_dir = os.path.join(os.path.dirname(__file__), "templates")
+
+@app.get("/")
+async def read_root():
+    return FileResponse(os.path.join(template_dir, "index.html"))
